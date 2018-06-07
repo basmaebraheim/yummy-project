@@ -1,0 +1,27 @@
+
+.fIcon{
+    width: 50;
+    height: 50;
+    margin: 10;
+}
+.border {
+    border: 2;
+    border-color: white;
+}
+button{
+    background-color:#f1efef;   
+}
+.search{
+    background-color: #e0dddd;
+    background-image: url("~/images/rest.jpg")
+}
+.search Image{
+    width: 80%;
+}
+.options button{
+    opacity: 0;
+    
+}
+.options Image{
+    width: 100%;
+}

@@ -1,0 +1,29 @@
+<ActionBar [style]="style">
+    <StackLayout orientation="horizontal"
+      ios:horizontalAlignment="center"
+      android:horizontalAlignment="center">
+      <Image src="res://icon" class="action-image"></Image>
+    </StackLayout>
+</ActionBar>
+
+<GridLayout rows="*, auto">
+    
+    <GridLayout [ngSwitch]="tabname" class=" m-0"  borderRadius="5">
+ 
+        <GridLayout *ngSwitchCase="'Search'" backgroundColor="#8C489F">
+            <search></search>
+        </GridLayout>
+        <GridLayout *ngSwitchCase="'Recommend'" backgroundColor="#0077AF">
+            <home></home>
+        </GridLayout>
+        <GridLayout *ngSwitchCase="'Others'" backgroundColor="#FFFF66">
+            <GridLayout class="gridtest" columns="*,*" rows="*" sdkExampleTitle sdkToggleNavButton>
+                <Label col="0" row="0" class="m-15 h2 text-left" color="DarkSlateBlue" text="V Type" textWrap="true"></Label>
+                <TextField col="1" row="0" class="input input-border" [(ngModel)]="vtypeng" id="locationTFId" ></TextField>
+            </GridLayout>
+        </GridLayout>
+
+    </GridLayout>
+
+    <BottomBar row="1" [items]="items" [hide]="hidden" [titleState]="titleState" (loaded)="tabLoaded($event)" (tabSelected)="tabSelected($event)" [inactiveColor]="inactiveColor" [accentColor]="accentColor" [colored]="colored" uncoloredBackgroundColor="black"></BottomBar>
+</GridLayout>

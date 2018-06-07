@@ -1,0 +1,22 @@
+ActionBar{
+    background-color: #6C9202;
+    height: 220px;
+}
+ActionBar TextField{
+    background-color: white;
+    width: 100%;
+    height: 80px;
+
+}
+ActionBar TextField{
+    background-color: white;
+    width: 100%;
+    height: 80px;
+
+}
+ActionBar button{
+    background-color: rgb(224, 231, 202);
+}
+ActionBar .back{
+    opacity: 0;
+}

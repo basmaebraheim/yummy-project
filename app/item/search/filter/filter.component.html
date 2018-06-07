@@ -1,0 +1,25 @@
+<ActionBar >
+        <GridLayout rows="auto auto auto" columns="* * *" orientation="horizontal">
+          <TextField row="0" col="0" colSpan="3" hint="&#xf060;  What are you looking for?" class="body fa m-10" width="90%"></TextField>
+          <button row="0" col="0"  text=" &#xf060;" class="fa back" width="70px"></button>
+          <button row="1" col="0"  text="&#xf0b0; FILTERS" class="body  fa" width="220px" (tap)="createModalView()"></button>
+          <button row="1" col="1"  text="&#xf041; NEAR" class="body  fa" width="220px"></button>
+          <button row="1" col="2"  text="&#xf004; likes" class="body  fa" width="220px"></button>
+        </GridLayout>
+</ActionBar>
+<ScrollView orientation="vertical" tkMainContent class="page">
+    <ListView [items]="restaurants" class="list-group">
+        <ng-template let-restaurant="item">
+            <StackLayout orientation="horizontal" class="list-group-item">
+                    <Image row="0" col="0" rowSpan="2" height="100" width="100"  src="http://s3-media2.ak.yelpcdn.com/bphoto/ERxhGNafN5xS0s1I9Nscmg/ms.jpg" class="thumb p-16"></Image>
+                    <GridLayout class="list-group-item" rows="auto * * *" columns="*,auto" [nsRouterLink]="['/restaurantdetail']" [queryParams]="{ business_id: restaurant.business_id }">
+                        <Label row="0" col="0" [text]="restaurant.name" class="list-group-item-heading"></Label>
+                        <Label row="1" col="0" class="list-group-item-text" [text]="'City: '+ restaurant.city"></Label>
+                        <Label row="2" col="0" class="list-group-item-text" [text]="'Address: '+ restaurant.address"></Label>
+                        <Label row="3" col="0" class="list-group-item-text" [text]="restaurant.review_count + 'reviews'"></Label>                                    
+                        <label col="1" row=0 class="list-group-item-text" [text]="restaurant.is_open?open:closed"></label>
+                    </GridLayout>
+            </StackLayout>
+        </ng-template>
+    </ListView>
+</ScrollView>  

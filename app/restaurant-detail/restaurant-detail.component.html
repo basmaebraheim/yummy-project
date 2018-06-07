@@ -1,0 +1,49 @@
+<ActionBar [title]="restaurant.name" >
+        <NavigationButton android.systemIcon="ic_menu_back" (tap)="goBack()"></NavigationButton>
+</ActionBar>
+<ScrollView orientation="vertical" class="page">
+    <StackLayout>
+        <!-- --------------------------------- card view --------------------------------------- -->
+        <GridLayout rows="200 auto" columns="*"  style="border:1;" *ngIf="photos"> 
+                <Image row="0" col="0" [src]="'http://s3-media2.ak.yelpcdn.com/bphoto/'+ photos[0].photo_id +'/ms.jpg'" stretch="aspectFill"></Image>
+                <StackLayout class="m-10" row="1" col="0" backgroundColor="white" >
+                    <Label class="h2 primary" [text]="restaurant.name"></Label>
+                    <Label class="body" [text]="restaurant.address"></Label>      
+                </StackLayout>
+        </GridLayout>
+            
+        <StackLayout class="hr-light"></StackLayout>
+        <!-- --------------------------------- restaurant photos --------------------------------------- -->
+        <GridLayout rows="30,auto" columns="4*,*" class="m-t-20 "  orientation="vertical" *ngIf="photos" >
+                <label  text="Photos" row="0" col="0" class="primary h3 m-x-15 font-weight-bold" textWrap="true"></label>
+                <ScrollView orientation="horizontal" (loaded)="onScrollLoaded($event)" row="1" colspan="2" backgroundColor="white" class="m-t-10">
+                        <StackLayout orientation="horizontal" class="list-group b-l-0" height="170" >
+                            <GridLayout *ngFor="let photo of photos"  rows="auto" columns="130" class="m-x-10" > 
+                                <StackLayout  > 
+                                    <Image [src]="'http://s3-media2.ak.yelpcdn.com/bphoto/'+ photo.photo_id +'/ms.jpg'"  stretch="aspectFill" height="130" width="130"></Image>                                  
+                                </StackLayout>
+                            </GridLayout>  
+                        </StackLayout>
+                </ScrollView>
+        </GridLayout>
+        <StackLayout class="hr-light"></StackLayout>
+        <!-- --------------------------------- restaurant reviews --------------------------------------- -->
+        <GridLayout rows="30,auto" columns="*" class="m-t-20 "  orientation="vertical" *ngIf="reviews" >
+            <Label text="Reviews" row="0" class="primary h3 m-x-15 font-weight-bold" textWrap="true"></Label>
+            <ListView row="1" height="800" [items]="reviews" class="list-group p-x-10" *ngIf="reviews" >
+                    <ng-template let-review="item">
+                        <StackLayout class="list-group-item">
+                            <Label class="list-group-item-heading" [text]="review.text" textWrap="true"></Label>
+                            <StackLayout orientation="horizontal">
+                                <Label class="list-group-item-text" [text]="review.stars"></Label>      
+                                <Label class="list-group-item-text" text=" Likes"></Label>
+                            </StackLayout>
+                            <StackLayout orientation="horizontal">
+                            <Label class="list-group-item-text" [text]="review.date | date"></Label>
+                            </StackLayout>      
+                        </StackLayout>
+                    </ng-template>
+            </ListView>
+        </GridLayout>
+    </StackLayout>   
+</ScrollView>

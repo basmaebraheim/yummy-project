@@ -1,0 +1,11 @@
+.text-danger{
+    color: #d14216;
+}
+.page{
+    background-color: rgb(255, 254, 247);
+}
+.section{
+    background-color: white;
+    border: 2px;
+    border-bottom-color: #d14216;
+}

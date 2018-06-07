@@ -1,0 +1,22 @@
+<StackLayout orientation="vertical" tkMainContent class="page">
+    <GridLayout rows="2* * 3*" class="m-0">
+        <StackLayout row="0" rowSpan="2" orientation="vertical" class="search ">
+            <Image src="res://yumm" opacity=".9" stretch="aspectFill" class="m-15" height="35%"></Image>                
+        </StackLayout>
+        <button row="1"  text="&#xf002;  What are you looking for?" height="130px" class="body fa m-x-10" [nsRouterLink]="['/filter']" ></button>  
+        <GridLayout row="2" rows="* * *" columns="* * *" orientation="vertical" class=" options">
+                <button row="0" col="0"  text="&#xf002;  " class="body  fa" [nsRouterLink]="['/filter']" ></button>
+                <button row="0" col="1"  text="&#xf002;  " class="body  fa" [nsRouterLink]="['/filter']" ></button>
+                <button row="0" col="2"  text="&#xf002;  " class="body  fa" [nsRouterLink]="['/filter']" ></button>
+                <button row="1" col="0"  text="&#xf002;  " class="body  fa" [nsRouterLink]="['/filter']" ></button>
+                <button  row="1" col="1" text="&#xf002;  " class="body  fa" [nsRouterLink]="['/filter']" ></button>
+                <button row="1" col="2"  text="&#xf002;  " class="body  fa" [nsRouterLink]="['/filter']" ></button>
+                <button row="2" col="0"  text="&#xf002;  " class="body  fa" [nsRouterLink]="['/filter']" ></button>
+                <button row="2" col="1"  text="&#xf002;  " class="body  fa" [nsRouterLink]="['/filter']" ></button>
+                <button row="2" col="2"  text="&#xf002;  " class="body  fa" [nsRouterLink]="['/filter']" ></button>
+                <Image src="res://png" row="0" col="0" rowSpan="3" colSpan="3" stretch="aspectFit"></Image>
+        </GridLayout>
+    </GridLayout>  
+        
+</StackLayout>    
+

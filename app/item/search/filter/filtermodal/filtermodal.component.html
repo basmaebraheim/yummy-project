@@ -1,0 +1,25 @@
+<StackLayout class="modal-view-style">
+    <GridLayout rows="auto auto auto auto auto auto auto" columns="*" class="m-15" [formGroup]="filter">
+        <label text="Select Category" class="body" row="0"></label>
+        <StackLayout row="1">
+                <ListPicker id="categoryPicker" [items]="categoryArray" selectedIndex="0"
+                    class="p-15" formControlName="category"></ListPicker>
+        </StackLayout>
+        <label text="Sort by" class="body" row="2"></label>
+        <GridLayout columns="* * *" orientation="horizontal" row="3">
+            <Button class="sort-btn btn m-0 " text="Price" col="0" formControlName="price"></Button>
+            <Button class="sort-btn btn   m-0 " text="Distance" col="1" formControlName="distance"></Button>
+            <Button class="sort-btn btn   m-0 " text="Rating" col="2" formControlName="rating"></Button>
+        </GridLayout>
+        <label text="Filter cost" class="body" row="4"></label>
+        <GridLayout columns="* * * *" orientation="horizontal" row="5">
+            <Button class="cost-btn btn" text="$" col="0" formControlName="cost1"></Button>
+            <Button class="cost-btn btn" text="$$" col="1" formControlName="cost2"></Button>
+            <Button class="cost-btn btn" text="$$$" col="2" formControlName="cost3"></Button>
+            <Button class="cost-btn btn" text="$$$$" col="3" formControlName="cost3"></Button>
+        </GridLayout>
+        <Button class="btn btn-primary btn-active" text="filter"
+        (tap)="submit()" row="6"></Button>
+    </GridLayout>
+       
+</StackLayout>

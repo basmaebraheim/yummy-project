@@ -1,0 +1,44 @@
+<ScrollView class="page" >
+        <StackLayout orientation="vertical">
+            <GridLayout rows="90,auto" columns="4*,*" class="m-t-20 section "  orientation="vertical" *ngIf="popularRestaurants" >
+                <StackLayout row="0" col="0" class="m-15">
+                    <label  text="Popular" class="h2 " textWrap="true"></label>
+                    <label  text="Suggestions based on most liked" class="body" textWrap="true"></label>
+                </StackLayout>
+                <label row="0" col="1" class="text-danger h4 m-t-20" text="MORE >>"></label>
+                <ScrollView orientation="horizontal" (loaded)="onScrollLoaded($event)" row="1" colspan="2" backgroundColor="white">
+                        <StackLayout orientation="horizontal" class="list-group b-l-0" height="225" >
+                            <GridLayout *ngFor="let restaurant of popularRestaurants"  rows="auto" columns="200" class="m-10" > 
+                                <StackLayout  [nsRouterLink]="['/restaurantdetail']" [queryParams]="{ business_id: restaurant.business_id }"> 
+                                    <Image src="http://s3-media2.ak.yelpcdn.com/bphoto/ERxhGNafN5xS0s1I9Nscmg/ms.jpg"  stretch="aspectFill" height="150" width="200"></Image>
+                                    <label [text]="restaurant.name" class="h3 m-5"></label> 
+                                    <label [text]="restaurant.address" class="body m-t-3 m-l-5"></label>                                   
+                                </StackLayout>
+                            </GridLayout> 
+                        </StackLayout>
+                </ScrollView>
+            </GridLayout>
+
+            <GridLayout rows="90,auto" columns="4*,*" class="m-t-20 section "  orientation="vertical" *ngIf="popularRestaurants" >
+                <StackLayout row="0" col="0" class="m-15">
+                    <label  text="Nearby" class="h2 " textWrap="true"></label>
+                    <label  text="Suggestions based on location" class="body" textWrap="true"></label>
+                </StackLayout>
+                <label row="0" col="1" class="text-danger h4 m-t-20" text="MORE >>"></label>
+                <ScrollView orientation="horizontal" (loaded)="onScrollLoaded($event)" row="1" colspan="2" backgroundColor="white">
+                        <StackLayout orientation="horizontal" class="list-group b-l-0" height="225" >
+                            <GridLayout *ngFor="let restaurant of popularRestaurants"  rows="auto" columns="200" class="m-10" > 
+                                <StackLayout  [nsRouterLink]="['/restaurantdetail']" [queryParams]="{ business_id: restaurant.business_id }"> 
+                                    <Image src="http://s3-media2.ak.yelpcdn.com/bphoto/ERxhGNafN5xS0s1I9Nscmg/ms.jpg"  stretch="aspectFill" height="150" width="200"></Image>
+                                    <label [text]="restaurant.name" class="h3 m-5"></label> 
+                                    <label [text]="restaurant.address" class="body m-t-3 m-l-5"></label>                                   
+                                </StackLayout>
+                            </GridLayout> 
+                        </StackLayout>
+                </ScrollView>
+            </GridLayout>
+            
+            
+            
+        </StackLayout>    
+    </ScrollView> 
